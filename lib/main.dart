@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:secuzone_app/core/resources/app_colors.dart';
-import 'package:secuzone_app/view/screens/splash/splash_screen.dart';
+import 'package:secuzone_app/view/screens/main_page/main_page_for_owner/main_page_for_owner.dart';
+import 'core/resources/app_theme.dart';
 import 'core/resources/strings_en.dart';
 
 void main() {
@@ -15,14 +15,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: AppStringsEn.appTitle,
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
-        scaffoldBackgroundColor: AppColors.secondColor,
-        useMaterial3: true,
-      ),
-      home: SplashScreen(),
+      theme: appTheme,
+      home: MainPageForOwner(),
     );
   }
 }
-
-
