@@ -1,9 +1,13 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:secuzone_app/core/resources/app_colors.dart';
 import 'package:secuzone_app/core/resources/image_assets.dart';
+import 'package:secuzone_app/view/screens/main_page/main_page_for_owner/family_info_screen.dart';
 import 'package:secuzone_app/view/screens/main_page/widgets/custom_container.dart';
 import '../../../../core/resources/app_styles.dart';
 import '../../../../core/resources/strings_en.dart';
+import '../widgets/announce_row.dart';
 
 class MainPageForOwner extends StatelessWidget {
   MainPageForOwner({super.key});
@@ -14,7 +18,7 @@ class MainPageForOwner extends StatelessWidget {
     'SOS',
     'Payment Gateway',
     'Guest QR Code',
-    'Services Around ',
+    'Services Around',
   ];
 
   final List<String> imagesLink = [
@@ -28,6 +32,20 @@ class MainPageForOwner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<void Function()?> functions = [
+      () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => FamilyInfoScreen(),
+            ));
+      },
+      () {},
+      () {},
+      () {},
+      () {},
+      () {},
+    ];
     return Scaffold(
       appBar: AppBar(
         title: Padding(
@@ -50,44 +68,83 @@ class MainPageForOwner extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 13.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 23.0),
-              child: Text(
-                'Services',
-                style: robotoMedium30,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 23.0),
+                child: Text(
+                  'Services',
+                  style: robotoMedium32,
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 20.0,
-            ),
-            Container(
-              height: 174.0,
-              margin: const EdgeInsetsDirectional.symmetric(horizontal: 21.0),
-              child: ListView.separated(
-                itemBuilder: (context, index) {
-                  return CustomContainer(
-                    imageLink: imagesLink[index],
-                    text: strings[index],
-                    onTab: () {},
+              const SizedBox(
+                height: 20.0,
+              ),
+              Container(
+                height: 174.0,
+                margin: const EdgeInsetsDirectional.symmetric(horizontal: 21.0),
+                child: ListView.separated(
+                  itemBuilder: (context, index) {
+                    return CustomContainer(
+                      imageLink: imagesLink[index],
+                      text: strings[index],
+                      onTab: functions[index],
+                    );
+                  },
+                  separatorBuilder: (context, index) {
+                    return const SizedBox(
+                      width: 20.0,
+                    );
+                  },
+                  itemCount: 6,
+                  scrollDirection: Axis.horizontal,
+                ),
+              ),
+              const SizedBox(
+                height: 25.0,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 10.0),
+                child: Row(
+                  children: [
+                    Text(
+                      'Announcement',
+                      style: robotoSemiBold25,
+                    ),
+                    const SizedBox(
+                      width: 15.0,
+                    ),
+                    const Icon(
+                      Icons.announcement_outlined,
+                      color: AppColors.primaryColor,
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              ...List.generate(
+                3,
+                (index) {
+                  return const Padding(
+                    padding: EdgeInsets.only(bottom: 10.0),
+                    child: AnnouncementRow(
+                      time: '10:00 AM',
+                      text: AppStringsEn.electricityBills,
+                      rangeTime: '9:50 AM - 10:50 AM',
+                    ),
                   );
                 },
-                separatorBuilder: (context, index) {
-                  return const SizedBox(
-                    width: 20.0,
-                  );
-                },
-                itemCount: 6,
-                scrollDirection: Axis.horizontal,
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+        padding: const EdgeInsets.all(10.0),
         child: Container(
           clipBehavior: Clip.antiAliasWithSaveLayer,
           decoration: const BoxDecoration(
@@ -96,24 +153,28 @@ class MainPageForOwner extends StatelessWidget {
           child: BottomNavigationBar(
             items: [
               const BottomNavigationBarItem(
-                  icon: Icon(Icons.home_outlined, color: AppColors.secondColor),
-                  label: 'Home'),
+                icon: Icon(Icons.home_outlined, color: AppColors.secondColor),
+                label: 'Home',
+              ),
               BottomNavigationBarItem(
-                  icon: Image.asset(
-                    AppImages.userCircle,
-                    color: AppColors.secondColor,
-                    height: 30.0,
-                    width: 30.0,
-                  ),
-                  label: 'Account'),
+                icon: Image.asset(
+                  AppImages.userCircle,
+                  color: AppColors.secondColor,
+                  height: 30.0,
+                  width: 30.0,
+                ),
+                label: 'Account',
+              ),
               const BottomNavigationBarItem(
-                  icon: Icon(Icons.notifications_outlined,
-                      color: AppColors.secondColor),
-                  label: 'Notifications'),
+                icon: Icon(Icons.notifications_outlined,
+                    color: AppColors.secondColor),
+                label: 'Notifications',
+              ),
               const BottomNavigationBarItem(
-                  icon: Icon(Icons.settings_outlined,
-                      color: AppColors.secondColor),
-                  label: 'Settings'),
+                icon:
+                    Icon(Icons.settings_outlined, color: AppColors.secondColor),
+                label: 'Settings',
+              ),
             ],
           ),
         ),

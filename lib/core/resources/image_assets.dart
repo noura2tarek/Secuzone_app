@@ -8,6 +8,7 @@ class AppImages {
   static const String chatIcon = '$rootImages/chat.png';
   static const String payment = '$rootImages/payment.png';
   static const String servicesHammer = '$rootImages/services-hammer.png';
+  static const String profileImage = '$rootImages/photo.png';
 
 
 

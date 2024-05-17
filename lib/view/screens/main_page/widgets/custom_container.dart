@@ -3,38 +3,48 @@ import '../../../../core/resources/app_colors.dart';
 import '../../../../core/resources/app_styles.dart';
 
 class CustomContainer extends StatelessWidget {
-  const CustomContainer({super.key, required this.imageLink, required this.text, this.onTab});
- final String imageLink;
- final String text;
- final void Function()? onTab;
+  const CustomContainer(
+      {super.key, required this.imageLink, required this.text, this.onTab});
+
+  final String imageLink;
+  final String text;
+  final void Function()? onTab;
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTab,
       child: Container(
-        height: 170.0,
+        height: 140.0,
         width: 136.0,
         decoration: const BoxDecoration(
           color: AppColors.primaryColor,
           boxShadow: [
             BoxShadow(
               color: Colors.black,
-              offset: Offset.zero,
-              blurRadius: 1.3,
+              offset: Offset(1.0, 1.0),
+              blurRadius: 2.0,
               spreadRadius: 0.0,
             ),
             BoxShadow(
               color: Colors.black,
-              offset: Offset.zero,
-              blurRadius: 1.3,
+              offset: Offset(1.0, 1.0),
+              blurRadius: 2.0,
+            ),
+            BoxShadow(
+              color: Colors.black,
+              offset: Offset(1.0, 1.0),
+              blurRadius: 2.0,
             ),
           ],
-          borderRadius:
-          BorderRadius.all(Radius.circular(16.0)),
+          borderRadius: BorderRadius.all(Radius.circular(16.0)),
         ),
         child: Padding(
           padding: const EdgeInsets.only(
-              left: 14.0, right: 14.0, top: 18.0,),
+            left: 14.0,
+            right: 14.0,
+            top: 18.0,
+          ),
           child: Column(
             children: [
               Image(
@@ -46,7 +56,7 @@ class CustomContainer extends StatelessWidget {
                 height: 35.0,
               ),
               Text(
-               text,
+                text,
                 style: robotoSemiBold20,
                 textAlign: TextAlign.center,
               ),

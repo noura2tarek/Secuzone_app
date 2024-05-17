@@ -8,5 +8,6 @@ class AppStringsEn {
   static const String guardUserName = 'Guard Username...';
   static const String password = 'Password..';
   static const String userName = 'Username...';
+  static const String electricityBills = 'Electricity bills payment time\nsecurity grad';
 
 }
