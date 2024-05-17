@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:secuzone_app/core/resources/app_colors.dart';
 import 'package:secuzone_app/core/resources/image_assets.dart';
 import '../../../../core/resources/app_styles.dart';
-import 'family_person_info.dart';
+import '../widgets/family_person_info.dart';
 
 class FamilyInfoScreen extends StatelessWidget {
   const FamilyInfoScreen({super.key});
