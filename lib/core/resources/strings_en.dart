@@ -1,6 +1,7 @@
 class AppStringsEn {
   static const String appTitle = 'SecuZone App';
   static const String SecuZone = 'SecuZone';
+  static const String services = 'Services';
   static const String getStart = 'Get Start';
   static const String guardAccount = 'Guard Account...';
   static const String ownerAccount = 'Owner Account...';

@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:secuzone_app/core/resources/app_colors.dart';
 import 'package:secuzone_app/core/resources/image_assets.dart';
 import 'package:secuzone_app/view/screens/main_page/main_page_for_owner/family_info_screen.dart';
@@ -75,7 +73,7 @@ class MainPageForOwner extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 23.0),
                 child: Text(
-                  'Services',
+                  AppStringsEn.services,
                   style: robotoMedium32,
                 ),
               ),
